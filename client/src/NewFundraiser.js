@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import detectEthereumProvider from '@metamask/detect-provider';
-import getWeb3 from './utils/getWeb3';
-import FactoryContract from './contracts/Factory.json';
+import getWeb3 from './getWeb3';
+import FundraiserFactoryContract from './contracts/FundraiserFactory.json';
 import Web3 from 'web3'
 
 const useStyles = makeStyles (theme => ({
@@ -44,10 +44,10 @@ const NewFundraiser = () => {
             const provider = await detectEthereumProvider();
             const web3 = new Web3(provider);
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = FactoryContract.networks[networkId];
+            const deployedNetwork = FundraiserFactoryContract.networks[networkId];
             const accounts = await web3.eth.getAccounts();
             const instance = new web3.eth.Contract(
-                FactoryContract.abi, deployedNetwork && deployedNetwork.address,
+                FundraiserFactoryContract.abi, deployedNetwork && deployedNetwork.address,
             );
             setWeb3(web3);
             setContract(instance);
@@ -62,10 +62,10 @@ const NewFundraiser = () => {
         const provider = await detectEthereumProvider();
         const web3 = new Web3(provider);
         const networkId = await web3.eth.net.getId();
-        const deployedNetwork = FactoryContract.networks[networkId];
+        const deployedNetwork = FundraiserFactoryContract.networks[networkId];
         const accounts = await web3.eth.getAccounts();
         const instance = new web3.eth.Contract(
-            FactoryContract.abi, 
+            FundraiserFactoryContract.abi, 
             deployedNetwork && deployedNetwork.address,
         );
         await contract.methods.createFundraiser(name, url, imageURL, description, beneficiary).send({ from: accounts[0] });
