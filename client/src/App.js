@@ -62,9 +62,9 @@ import Typography from '@material-ui/core/Typography';
               </Toolbar>
             </AppBar>
             <Routes>
-              <Route path="/" exact component={Home} />
-              <Route path="/new/" component={NewFundraiser} />
-              <Route path="/receipts" component={Receipts} />
+              <Route path="/" exact element={<Home />} />
+              <Route path="/new" element={<NewFundraiser />} />
+              <Route path="/receipts" element={<Receipts />} />
             </Routes>
           </div>
    

@@ -3,9 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import detectEthereumProvider from '@metamask/detect-provider';
-import getWeb3 from './getWeb3';
 import FundraiserFactoryContract from './contracts/FundraiserFactory.json';
-import Web3 from 'web3'
+import Web3 from 'web3';
 
 const useStyles = makeStyles (theme => ({
     container: {
@@ -84,11 +83,20 @@ const NewFundraiser = () => {
             <label>Description</label>
             <TextField id="outlined-bare" className={classes.textField} placeholder="Fundraiser Description" margin="normal" onChange={ (e) => setFundraiserDescription(e.target.value) } variant="outlined" inputProps={{ 'aria-label': 'bare' }} />
             <label>Image</label>
-            <TextField id="outlined-bare" className={classes.textField} placeholder="Fundraiser Image" margin="normal" onChange={ (e) => setImage(e.target.value) } variant="outlined" inputProps={{ 'aria-label': 'bare' }} />
+            <TextField id="outlined-bare" className={classes.textField} placeholder="Fundraiser Image Address" margin="normal" onChange={ (e) => setImage(e.target.value) } variant="outlined" inputProps={{ 'aria-label': 'bare' }} />
             <label>Address</label>
-            <TextField id="outlined-bare" className={classes.textField} placeholder="Fundraiser Address" margin="normal" onChange={ (e) => setAddress(e.target.value) } variant="outlined" inputProps={{ 'aria-label': 'bare' }} />
+            <TextField id="outlined-bare" className={classes.textField} placeholder="Fundraiser Ehtereum Address" margin="normal" onChange={ (e) => setAddress(e.target.value) } variant="outlined" inputProps={{ 'aria-label': 'bare' }} />
+            
+            {/* 
+              The custodian address is another Ethereum address that either the beneficiary 
+              con‐ trols directly or someone operating on behalf of the beneficiary will own. 
+              This address can interact with a DApp, and it is this address that will be given 
+              the ability to issue the transaction that will transfer funds collected by the 
+              Fundraiser contract to the beneficiary address.
+            
+            */}
             <label>Custodian</label>
-            <TextField id="outlined-bare" className={classes.textField} placeholder="Fundraiser Custodian" margin="normal" onChange={ (e) => setCustodian(e.target.value) } variant="outlined" inputProps={{ 'aria-label': 'bare' }} />
+            <TextField id="outlined-bare" className={classes.textField} placeholder="Fundraiser Custodian Eth Address" margin="normal" onChange={ (e) => setCustodian(e.target.value) } variant="outlined" inputProps={{ 'aria-label': 'bare' }} />
 
             <Button onClick={handleSubmit} variant="contained" className={classes.button}>
                 Submit
