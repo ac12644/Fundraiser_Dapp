@@ -1,5 +1,19 @@
-# Fundraiser_Dapp
-Decentralized application for fundraising built on ethereum network 🌐. Set up a fundraising campaign, donate ETH💰, generate a receipt🗒️, and withdraw the amount💲
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/ac12644/Fundraiser_Dapp">
+    <img src="fundraise.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Fundraiser Dapp</h3>
+
+  <p align="center">
+    Decentralized application for fundraising built on ethereum network 🌐. Set up a fundraising campaign, donate ETH💰, generate a receipt🗒️, and withdraw the amount💲
+    <br />
+    <a href="https://betterprogramming.pub/create-a-full-stack-fundraiser-dapp-using-truffle-solidity-react-material-ui-and-web3-222638147c7a"><strong>Explore the article on Medium »</strong></a>
+  </p>
+</div>
+
 
 ## Getting started
 1. compile and migrate contracts using truffle
