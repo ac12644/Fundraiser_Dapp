@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 import NewFundraiser from "./NewFundraiser";
 import Home from "./Home";
 import Receipts from "./Receipts";
@@ -11,14 +12,20 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
-const App = () => {
-  const useStyles = makeStyles({
-    root: {
-      flexGrow: 1,
-    },
-  });
-  const classes = useStyles();
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
+const App = () => {
+  const classes = useStyles();
   const [state, setState] = useState({
     web3: null,
     accounts: null,
@@ -55,18 +62,20 @@ const App = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" color="inherit">
-            <NavLink className={classes.navLink} to="/">
-              Home
-            </NavLink>
-            <NavLink className={classes.navLink} to="/new">
-              New
-            </NavLink>
+          <Typography variant="h6" className={classes.title}>
+            Fundraiser Dapp
           </Typography>
+          <Button href="/" color="inherit">
+            Home
+          </Button>
+          <Button href="/new" color="inherit">
+            Create Fundraiser
+          </Button>
         </Toolbar>
       </AppBar>
+
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/new" element={<NewFundraiser />} />
